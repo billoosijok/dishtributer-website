@@ -1,0 +1,226 @@
+---
+import ImagePlaceholder from './ImagePlaceholder.astro';
+
+const steps = [
+  {
+    n: '01',
+    title: 'Take the booking',
+    body: 'Date, time, party size and the menus you want to offer that night.',
+  },
+  {
+    n: '02',
+    title: 'Send one link',
+    body: 'The organiser forwards it to the table. Everyone orders for themselves.',
+  },
+  {
+    n: '03',
+    title: 'Guests pay up front',
+    body: 'Card payment lands in your Stripe account the moment they confirm.',
+  },
+  {
+    n: '04',
+    title: 'Print the prep list',
+    body: 'Dish counts for the kitchen, names and allergies for the front of house.',
+  },
+];
+---
+
+<section class="how" id="referrals">
+  <div class="glow glow-teal"></div>
+  <div class="glow glow-sand"></div>
+
+  <div class="how-inner">
+    <p class="eyebrow">HOW IT WORKS</p>
+    <h2>From a phone call to a prepped kitchen in <span class="accent">four steps</span></h2>
+
+    <div class="steps">
+      {
+        steps.map((s) => (
+          <div class="step glass-panel">
+            <div class="step-n">STEP {s.n}</div>
+            <h3>{s.title}</h3>
+            <p>{s.body}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="shots">
+      <div class="shot shot-main">
+        <ImagePlaceholder label="Booking detail — pre-orders and payment status (1600×1040)" tone="dark" />
+      </div>
+      <div class="shots-side">
+        <div class="shot shot-side">
+          <ImagePlaceholder label="Guest pre-order screen on mobile (800×1000)" tone="dark" />
+        </div>
+        <div class="quote glass-panel">
+          <p>
+            The guest screen is the whole product for most people. It has to work on a bus, in
+            one hand, with a bad signal.
+          </p>
+          <div class="quote-label">DESIGN PRINCIPLE 01</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .how {
+    position: relative;
+    background: var(--accent-deep);
+    padding: 150px var(--gutter) 104px;
+    margin-top: -48px;
+    clip-path: polygon(0 72px, 100% 0, 100% 100%, 0 100%);
+    overflow: hidden;
+  }
+
+  .glow-teal {
+    top: 100px;
+    left: -140px;
+    width: 560px;
+    height: 560px;
+    filter: blur(70px);
+    background: radial-gradient(circle, rgba(var(--accent-glow), 0.55), rgba(var(--accent-glow), 0) 70%);
+  }
+
+  .glow-sand {
+    bottom: -180px;
+    right: -120px;
+    width: 520px;
+    height: 520px;
+    filter: blur(70px);
+    background: radial-gradient(circle, rgba(var(--sand-glow), 0.3), rgba(var(--sand-glow), 0) 70%);
+  }
+
+  .how-inner {
+    position: relative;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .how h2 {
+    margin: 16px 0 0;
+    max-width: 720px;
+    font-weight: 700;
+    font-size: clamp(30px, 4vw, 50px);
+    line-height: 1.04;
+    letter-spacing: -0.032em;
+    color: var(--on-dark);
+  }
+
+  .eyebrow {
+    color: var(--accent-light);
+  }
+
+  .accent {
+    color: var(--accent-lighter);
+  }
+
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 56px;
+  }
+
+  .step {
+    padding: 26px 24px 28px;
+  }
+
+  .step-n {
+    font: 500 12px/1 var(--font-mono);
+    color: var(--accent-light);
+  }
+
+  .step h3 {
+    margin: 14px 0 8px;
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--on-dark);
+    letter-spacing: -0.02em;
+  }
+
+  .step p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--on-dark-muted);
+  }
+
+  .shots {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    gap: 18px;
+    margin-top: 64px;
+  }
+
+  .shot {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .shot-main {
+    min-height: 520px;
+  }
+
+  .shots-side {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .shot-side {
+    flex: 1;
+    min-height: 250px;
+  }
+
+  .quote {
+    padding: 24px 26px 26px;
+  }
+
+  .quote p {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 1.45;
+    letter-spacing: -0.015em;
+    color: var(--on-dark);
+  }
+
+  .quote-label {
+    margin-top: 16px;
+    font: 500 12px/1 var(--font-mono);
+    color: var(--accent-light);
+  }
+
+  @media (max-width: 980px) {
+    .steps {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .shots {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .steps {
+      grid-template-columns: 1fr;
+    }
+
+    .how {
+      padding: 100px 20px 72px;
+    }
+  }
+</style>

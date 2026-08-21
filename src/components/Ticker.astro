@@ -1,0 +1,94 @@
+---
+const features = [
+  'One link per booking',
+  'Guests choose their own dishes',
+  'Card payment up front',
+  'À la carte and set menus',
+  'Two and three-course options',
+  'Per-course sub-item choices',
+  'Kitchen dish counts',
+  'Door list with names',
+  'Allergy notes',
+  'Deposits and full pre-payment',
+  'Stripe payouts to your account',
+  'Refunds in one click',
+  'Referral partner links',
+  'Attributed bookings',
+  'Partner rewards',
+  'Review requests after service',
+  'English and French',
+  'Multi-site dashboard',
+];
+---
+
+<div class="ticker-band">
+  <div class="ticker-track">
+    {
+      [0, 1].map(() => (
+        <div class="ticker-copy">
+          {features.map((f) => (
+            <>
+              <span>{f}</span>
+              <span class="slash">/</span>
+            </>
+          ))}
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .ticker-band {
+    position: relative;
+    z-index: 5;
+    background: var(--paper);
+    height: 74px;
+    overflow: hidden;
+  }
+
+  .ticker-track {
+    position: absolute;
+    left: -4%;
+    /* right is over-constrained by width:max-content, matching the source design */
+    right: -4%;
+    top: 10px;
+    transform: rotate(-1.4deg);
+    background: var(--accent);
+    padding: 15px 0;
+    overflow: hidden;
+    display: flex;
+    width: max-content;
+    animation: dt-marq 160s linear infinite;
+  }
+
+  .ticker-copy {
+    display: flex;
+    white-space: nowrap;
+    font: 500 12px/1 var(--font-mono);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #d9e4e1;
+    gap: 26px;
+    padding-right: 26px;
+  }
+
+  .slash {
+    color: #7e9b95;
+  }
+
+  @keyframes dt-marq {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ticker-track {
+      animation: none;
+    }
+  }
+</style>

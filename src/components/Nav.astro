@@ -1,0 +1,81 @@
+---
+import logo from '../assets/logo-full-horizontal.png';
+
+const ctaLabel = 'Join early access';
+---
+
+<div class="nav-wrap">
+  <nav class="nav glass-card">
+    <img src={logo.src} alt="Dishtributer" class="logo" />
+    <div class="links">
+      <a href="#pre-orders">Pre-orders</a>
+      <a href="#referrals">Referrals</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#pricing">Pricing</a>
+    </div>
+    <div class="actions">
+      <a href="#sign-in" class="sign-in">Sign in</a>
+      <a href="#early-access" class="btn btn-primary btn-sm">{ctaLabel}</a>
+    </div>
+  </nav>
+</div>
+
+<style>
+  .nav-wrap {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    padding: 20px clamp(16px, 3vw, 36px) 0;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 14px 12px 22px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(32px) saturate(1.6);
+    -webkit-backdrop-filter: blur(32px) saturate(1.6);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+  }
+
+  .logo {
+    height: 26px;
+    width: auto;
+  }
+
+  .links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink-soft);
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .sign-in {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink-soft);
+  }
+
+  @media (max-width: 860px) {
+    .links {
+      display: none;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .sign-in {
+      display: none;
+    }
+  }
+</style>

@@ -1,0 +1,153 @@
+:root {
+  --ink: #14171a;
+  --ink-soft: #3c4542;
+  --body: #4c5653;
+  --muted: #5c6663;
+  --muted-2: #7c8683;
+  --faint: #8a928f;
+
+  --paper: #efede8;
+  --paper-deep: #e6e2da;
+  --card-tint: #f6f5f2;
+
+  --accent: #3e5c58;
+  --accent-deep: #2e4a46;
+  --accent-glow: 78, 112, 108;
+  --accent-light: #8fa9a4;
+  --accent-lighter: #9cbbb5;
+  --sand-glow: 214, 178, 132;
+
+  --on-dark: #f6f5f2;
+  --on-dark-muted: rgba(246, 245, 242, 0.62);
+  --on-dark-muted-2: rgba(246, 245, 242, 0.72);
+
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Instrument Sans', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  --gutter: clamp(20px, 6vw, 76px);
+  --radius-lg: 26px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  font-family: var(--font-body);
+  color: var(--body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: var(--font-display);
+}
+
+p {
+  margin: 0;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-inline: var(--gutter);
+}
+
+.eyebrow {
+  font: 500 12px/1 var(--font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 15px 26px;
+  border-radius: 12px;
+  white-space: nowrap;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.btn:hover {
+  opacity: 0.92;
+}
+
+.btn-primary {
+  background: var(--ink);
+  color: #fff;
+}
+
+.btn-glass {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  color: var(--ink);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.btn-outline {
+  border: 1px solid rgba(20, 23, 26, 0.14);
+  color: var(--ink);
+  background: transparent;
+}
+
+.btn-light {
+  background: var(--card-tint);
+  color: var(--ink);
+  border: none;
+}
+
+.btn-sm {
+  font-size: 13px;
+  padding: 10px 16px;
+  border-radius: 11px;
+  gap: 8px;
+}
+
+.btn-block {
+  display: block;
+  text-align: center;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(26px) saturate(1.4);
+  -webkit-backdrop-filter: blur(26px) saturate(1.4);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 18px;
+}
+
+.glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(50px);
+  pointer-events: none;
+}

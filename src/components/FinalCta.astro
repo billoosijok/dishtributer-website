@@ -1,0 +1,137 @@
+---
+const ctaLabel = 'Join early access';
+---
+
+<section class="cta-wrap" id="early-access">
+  <div class="cta-card">
+    <div class="glow glow-teal"></div>
+    <div class="glow glow-sand"></div>
+
+    <div class="cta-inner">
+      <div class="cta-copy">
+        <h2>Take pre-orders <span class="accent">before everyone else</span></h2>
+        <p>
+          Early access is open to a small number of restaurants ahead of the October 2026 launch.
+          Apply and we'll set your menus up with you.
+        </p>
+      </div>
+
+      <form class="cta-form glass-card">
+        <label class="visually-hidden" for="cta-email">Email address</label>
+        <input id="cta-email" class="cta-input" type="email" name="email" placeholder="you@restaurant.com" required />
+        <button type="submit" class="btn btn-primary">{ctaLabel}<span>→</span></button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-wrap {
+    background: var(--paper);
+    padding: 0 clamp(16px, 4vw, 40px) 40px;
+  }
+
+  .cta-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    background: var(--paper-deep);
+    padding: 88px clamp(24px, 6vw, 56px) 92px;
+  }
+
+  .glow-teal {
+    top: -180px;
+    left: 120px;
+    width: 620px;
+    height: 620px;
+    filter: blur(56px);
+    background: radial-gradient(circle, rgba(var(--accent-glow), 0.45), rgba(var(--accent-glow), 0) 68%);
+  }
+
+  .glow-sand {
+    bottom: -240px;
+    right: -60px;
+    width: 560px;
+    height: 560px;
+    filter: blur(56px);
+    background: radial-gradient(circle, rgba(var(--sand-glow), 0.5), rgba(var(--sand-glow), 0) 68%);
+  }
+
+  .cta-inner {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+
+  .cta-copy h2 {
+    max-width: 640px;
+    font-weight: 700;
+    font-size: clamp(30px, 4vw, 54px);
+    line-height: 1.02;
+    letter-spacing: -0.034em;
+    color: var(--ink);
+  }
+
+  .accent {
+    color: var(--accent);
+  }
+
+  .cta-copy p {
+    margin: 20px 0 0;
+    max-width: 460px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--body);
+  }
+
+  .cta-form {
+    display: flex;
+    gap: 10px;
+    padding: 8px;
+    box-shadow: 0 16px 42px -18px rgba(20, 23, 26, 0.35);
+  }
+
+  .cta-input {
+    border: none;
+    background: transparent;
+    padding: 0 18px;
+    font-size: 15px;
+    font-family: var(--font-body);
+    color: var(--ink);
+    min-width: 220px;
+  }
+
+  .cta-input::placeholder {
+    color: #8a928f;
+  }
+
+  .cta-input:focus {
+    outline: none;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 700px) {
+    .cta-inner {
+      align-items: stretch;
+    }
+
+    .cta-form {
+      flex-direction: column;
+    }
+
+    .cta-input {
+      padding: 12px 14px;
+    }
+  }
+</style>

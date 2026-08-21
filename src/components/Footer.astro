@@ -1,0 +1,153 @@
+---
+import logo from '../assets/logo-full-horizontal.png';
+
+const year = new Date().getFullYear();
+---
+
+<div class="seam">
+  <div class="seam-line"></div>
+  <div class="seam-hole seam-hole--left"></div>
+  <div class="seam-hole seam-hole--right"></div>
+</div>
+
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src={logo.src} alt="Dishtributer" class="footer-logo" />
+      <p>Pre-orders, referrals and reviews for restaurants that fill their tables in advance.</p>
+    </div>
+
+    <nav class="footer-col">
+      <div class="footer-heading">Product</div>
+      <a href="#pre-orders">Pre-orders</a>
+      <a href="#menus">Menus</a>
+      <a href="#referrals">Referrals</a>
+      <a href="#reviews">Reviews</a>
+    </nav>
+
+    <nav class="footer-col">
+      <div class="footer-heading">Company</div>
+      <a href="#about">About</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <nav class="footer-col">
+      <div class="footer-heading">Legal</div>
+      <a href="#privacy">Privacy</a>
+      <a href="#terms">Terms</a>
+      <a href="#security">Security</a>
+    </nav>
+  </div>
+
+  <div class="footer-bottom">
+    <div>© {year} Dishtributer</div>
+    <div>Payments by Stripe</div>
+  </div>
+</footer>
+
+<style>
+  .seam {
+    position: relative;
+    background: var(--paper);
+    height: 48px;
+  }
+
+  .seam-line {
+    position: absolute;
+    left: 34px;
+    right: 34px;
+    top: 23px;
+    border-top: 2px dashed rgba(46, 74, 70, 0.3);
+  }
+
+  .seam-hole {
+    position: absolute;
+    top: 7px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #e9e7e2;
+  }
+
+  .seam-hole--left {
+    left: -18px;
+  }
+
+  .seam-hole--right {
+    right: -18px;
+  }
+
+  .footer {
+    background: var(--paper);
+    padding: 56px var(--gutter) 40px;
+  }
+
+  .footer-top {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 44px;
+    border-bottom: 1px solid rgba(20, 23, 26, 0.12);
+  }
+
+  .footer-logo {
+    height: 26px;
+    width: auto;
+  }
+
+  .footer-brand p {
+    margin: 18px 0 0;
+    max-width: 280px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+  }
+
+  .footer-heading {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 3px;
+  }
+
+  .footer-col a {
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  .footer-bottom {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 22px;
+    font: 400 12.5px/1 var(--font-mono);
+    color: var(--faint);
+  }
+
+  @media (max-width: 780px) {
+    .footer-top {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .footer-top {
+      grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      gap: 8px;
+    }
+  }
+</style>

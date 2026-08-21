@@ -1,0 +1,161 @@
+---
+import Icon from './Icon.astro';
+
+const features = [
+  {
+    icon: 'link-2',
+    n: '01',
+    title: 'Pre-order links',
+    body: 'Create a booking, pick which menus apply, and share one link. Guests order and pay in a couple of taps.',
+  },
+  {
+    icon: 'utensils-crossed',
+    n: '02',
+    title: 'À la carte and set menus',
+    body: 'Two-course, three-course or full à la carte, with sub-item choices per course and per guest.',
+  },
+  {
+    icon: 'clipboard-list',
+    n: '03',
+    title: 'Kitchen prep exports',
+    body: 'A CSV counting every dish for the pass, and a second one listing guests for the door.',
+  },
+  {
+    icon: 'users',
+    n: '04',
+    title: 'Referral partners',
+    body: 'Give hotels, taxi firms and concierges a card and a link. Every booking they send is attributed and rewarded.',
+  },
+  {
+    icon: 'message-square',
+    n: '05',
+    title: 'Reviews after the plate',
+    body: 'Ask for the review when the meal is still fresh, on the number that made the booking.',
+  },
+  {
+    icon: 'credit-card',
+    n: '06',
+    title: 'Stripe underneath',
+    body: 'Payment links, refunds and payouts run on your own Stripe account. No float, no middleman.',
+  },
+] as const;
+---
+
+<section class="features" id="pre-orders">
+  <div class="container">
+    <div class="features-head">
+      <h2>One tool for the parts of service that happen <span class="accent">before service</span></h2>
+      <p>
+        Built around what restaurants already do on the phone and in notebooks — bookings,
+        deposits, set menus, partner referrals and review chasing.
+      </p>
+    </div>
+
+    <div class="features-grid">
+      {
+        features.map((f) => (
+          <div class="feature-card glass-card">
+            <div class="feature-icon">
+              <Icon name={f.icon} size={30} strokeWidth={1.5} />
+            </div>
+            <div class="feature-n">{f.n}</div>
+            <h3>{f.title}</h3>
+            <p>{f.body}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .features {
+    background: var(--paper);
+    padding: 96px 0;
+  }
+
+  .features-head {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 64px;
+    align-items: baseline;
+    padding-bottom: 44px;
+  }
+
+  .features-head h2 {
+    font-weight: 700;
+    font-size: clamp(30px, 4vw, 48px);
+    line-height: 1.04;
+    letter-spacing: -0.032em;
+    color: var(--ink);
+  }
+
+  .accent {
+    color: var(--accent);
+  }
+
+  .features-head p {
+    max-width: 420px;
+    font-size: 15.5px;
+    line-height: 1.65;
+    color: var(--muted);
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .feature-card {
+    position: relative;
+    overflow: hidden;
+    padding: 30px 28px 34px;
+  }
+
+  .feature-icon {
+    color: var(--accent);
+  }
+
+  .feature-n {
+    position: absolute;
+    top: 30px;
+    right: 28px;
+    font: 500 11.5px/1 var(--font-mono);
+    color: #9aa4a1;
+    letter-spacing: 0.08em;
+  }
+
+  .feature-card h3 {
+    position: relative;
+    margin: 18px 0 8px;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+  }
+
+  .feature-card p {
+    position: relative;
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+
+  @media (max-width: 980px) {
+    .features-head {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .features-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 620px) {
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
