@@ -22,12 +22,20 @@ Pushes to `main` build and deploy automatically via `.github/workflows/deploy.ym
 Pages. GitHub Pages must be configured in the repo settings to build from **GitHub Actions**.
 
 The build emits **document-relative** asset paths (`./_astro/...`) via the `relative-asset-paths`
-integration in `astro.config.mjs`, so one artifact works at both mount points:
+integration in `astro.config.mjs`, so one artifact works at any mount point:
 
-- the project URL - `https://billoosijok.github.io/dishtributer-website/`
-- the custom domain in `public/CNAME` - `https://dishtributer.com/` (once DNS points at GitHub Pages)
+- the project URL - `https://billoosijok.github.io/dishtributer-website/` (current)
+- an apex custom domain - `https://dishtributer.com/` (planned)
 
 Do not add a hardcoded `base` to the Astro config: it would fix one of those URLs and break the other.
+
+### Custom domain
+
+There is deliberately **no `CNAME` file**. Adding `public/CNAME` makes every Actions deploy
+re-assert the custom domain, which overrides changes made in the Pages UI. To switch to
+dishtributer.com: point DNS at GitHub Pages first, then add `public/CNAME` containing
+`dishtributer.com` in a single commit. `site:` in the Astro config is already set to that domain
+and only affects generated absolute URLs (canonical, sitemap), not asset paths.
 
 ## Content still needed
 
