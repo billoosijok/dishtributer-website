@@ -19,8 +19,15 @@ npm run preview
 ## Deployment
 
 Pushes to `main` build and deploy automatically via `.github/workflows/deploy.yml` to GitHub
-Pages, served at the custom domain in `public/CNAME` (dishtributer.com). GitHub Pages must be
-configured in the repo settings to build from **GitHub Actions**.
+Pages. GitHub Pages must be configured in the repo settings to build from **GitHub Actions**.
+
+The build emits **document-relative** asset paths (`./_astro/...`) via the `relative-asset-paths`
+integration in `astro.config.mjs`, so one artifact works at both mount points:
+
+- the project URL - `https://billoosijok.github.io/dishtributer-website/`
+- the custom domain in `public/CNAME` - `https://dishtributer.com/` (once DNS points at GitHub Pages)
+
+Do not add a hardcoded `base` to the Astro config: it would fix one of those URLs and break the other.
 
 ## Content still needed
 
