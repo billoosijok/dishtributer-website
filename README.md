@@ -19,7 +19,16 @@ npm run preview
 ## Deployment
 
 Pushes to `main` build and deploy automatically via `.github/workflows/deploy.yml` to GitHub
-Pages. GitHub Pages must be configured in the repo settings to build from **GitHub Actions**.
+Pages.
+
+> **Required one-time setting:** Settings -> Pages -> Source must be **GitHub Actions**.
+>
+> If it is left on "Deploy from a branch", GitHub runs its built-in Jekyll
+> (`actions/jekyll-build-pages`) against this repo instead. That fails on `.astro` files,
+> whose `---` frontmatter is not valid YAML, and `actions/deploy-pages` in this workflow
+> cannot publish either. Jekyll also strips any directory beginning with `_`, which would
+> delete the entire `_astro/` bundle (all CSS and images) even on a successful build.
+> `public/.nojekyll` guards against that last case, but the Source setting is the real fix.
 
 The build emits **document-relative** asset paths (`./_astro/...`) via the `relative-asset-paths`
 integration in `astro.config.mjs`, so one artifact works at any mount point:
