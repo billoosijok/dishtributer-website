@@ -19,12 +19,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-      - run: npm ci
+      # withastro/action installs dependencies and runs the build itself.
+      # Node 22 matches local development; the build must not run on Node 20.
       - uses: withastro/action@v3
+        with:
+          node-version: 22
 
   deploy:
     needs: build

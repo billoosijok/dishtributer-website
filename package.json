@@ -13,5 +13,8 @@
   "dependencies": {
     "astro": "^4.16.0",
     "lucide-static": "^0.446.0"
+  },
+  "engines": {
+    "node": ">=22"
   }
 }
